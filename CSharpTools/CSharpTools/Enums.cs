@@ -8,7 +8,7 @@ namespace CSharpTools
     /// <summary>
     /// 身份证首位，代表地区
     /// </summary>
-    public enum Region
+    public enum Region:int
     {
         华北地区=1,
         东北地区=2,
@@ -20,7 +20,7 @@ namespace CSharpTools
     /// <summary>
     /// 身份证前2位，代表省份
     /// </summary>
-    public enum Province
+    public enum Province:int
     {
         北京市=11,
         天津市=12,
@@ -54,4 +54,13 @@ namespace CSharpTools
         宁夏回族自治区=64,
         新疆维吾尔族自治区=65
     }
+    /// <summary>
+    /// 性别
+    /// </summary>
+    public enum Sex:int
+    {
+        女=0,
+        男=1
+    }
+
 }
