@@ -7,36 +7,31 @@ namespace CSharpTools
 {
     public class IDCard
     {
-        private List<int> intArr;
-        private readonly List<char> charArr;
-        private readonly List<int> arr = new List<int>(){ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };
-        private readonly List<char> map = new List<char>() { '1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2' };
+        private readonly List<int> _intArr=new List<int>();
+        private readonly List<char> _charArr;
+        private readonly List<int> _arr = new List<int>(){ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };
+        private readonly List<char> _map = new List<char>() { '1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2' };
         public IDCard(string id, string name = "")
         {
             if (id.Length != 18)
                 throw new Exception("身份证号码长度不正确，请检查！");
             if (!Valid(id))
                 throw new Exception("身份证" + id + "校验失败，请检查！");
-            charArr = id.ToList();
-            for (int i = 0; i < 17; i++)
+            ID = id;
+            Name = name;
+            _charArr = id.ToList();
+            for (var i = 0; i < 17; i++)
             {
-                var t = charArr[i] - '0';
+                var t = _charArr[i] - '0';
                 if (t > 9)
                     throw new Exception("身份证号" + id + "有误，请检查");
-                intArr.Add(t);
+                _intArr.Add(t);
             }
-            try
-            {
-                Sex = (Sex)(intArr[16] % 2);
-                Region = (Region)(intArr[0]);
-                Province = (Province)(intArr[0] * 10 + intArr[1]);
-                Birthday = DateTime.ParseExact(id.Substring(6, 8), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture);
 
-            }
-            catch (Exception exp)
-            {
-                throw exp;
-            }
+            Sex = (Sex)(_intArr[16] % 2);
+            Region = (Region)(_intArr[0]);
+            Province = (Province)(_intArr[0] * 10 + _intArr[1]);
+            Birthday = DateTime.ParseExact(id.Substring(6, 8), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture);
         }
         /// <summary>
         /// 第18位校验
@@ -45,23 +40,23 @@ namespace CSharpTools
         /// <returns></returns>
         private bool Valid(string id)
         {
-            int sum = 0;
-            for(int i = 0; i < 17; i++)
+            var sum = 0;
+            for(var i = 0; i < 17; i++)
             {
-                sum += intArr[i] * arr[i];
+                sum += _intArr[i] * _arr[i];
             }
-            return charArr[17] == map[sum % 11];
+            return _charArr[17] == _map[sum % 11];
             
         }
 
         /// <summary>
         /// 身份证号码
         /// </summary>
-        public string ID { get; private set; }
+        public string ID { get; }
         /// <summary>
         /// 姓名
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
         /// <summary>
         /// 区域
         /// </summary>

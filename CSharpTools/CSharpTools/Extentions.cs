@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CSharpTools
 {
@@ -38,15 +36,15 @@ namespace CSharpTools
                 }
                 if (type.IsArray)//若是数组
                 {
-                    var v = param as IList;
-                    string r = "[";
+                    var r = "[";
 
-                    foreach (var item in v)
-                    {
-                        r += item.ToStr();
-                        r += ",";
+                    if (param is IList v)
+                        foreach (var item in v)
+                        {
+                            r += item.ToStr();
+                            r += ",";
+                        }
 
-                    }
                     r = r.TrimEnd(',');
                     r += "]";
                     return r;
@@ -79,15 +77,15 @@ namespace CSharpTools
                 }
                 if (type.IsArray)//若是数组
                 {
-                    var v = param as IList;
-                    string r = "[";
+                    var r = "[";
 
-                    foreach (var item in v)
-                    {
-                        r += item.ToStr();
-                        r += ",";
+                    if (param is IList v)
+                        foreach (var item in v)
+                        {
+                            r += item.ToStr();
+                            r += ",";
+                        }
 
-                    }
                     r = r.TrimEnd(',');
                     r += "]";
                     return r;

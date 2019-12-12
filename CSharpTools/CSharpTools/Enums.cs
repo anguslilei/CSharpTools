@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace CSharpTools
+﻿namespace CSharpTools
 {
     /// <summary>
     /// 身份证首位，代表地区
