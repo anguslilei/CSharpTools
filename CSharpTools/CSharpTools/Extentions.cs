@@ -9,6 +9,9 @@ namespace CSharpTools
     /// </summary>
     public static class Extentions
     {
+        #region 字符串
+
+        
         /// <summary>
         /// 将字符串数组转字符串输出
         /// </summary>
@@ -99,5 +102,18 @@ namespace CSharpTools
                 return exp.Message;
             }
         }
+        #endregion
+        #region 数字
+        /// <summary>
+        /// 中式浮点数四舍五入
+        /// </summary>
+        /// <param name="d">double</param>
+        /// <param name="decimals">要保留的小数位数</param>
+        /// <returns></returns>
+        public static double ExRound(this double d, int decimals)
+        {
+            return Math.Round(d, decimals, MidpointRounding.AwayFromZero);
+        }
+        #endregion
     }
 }
