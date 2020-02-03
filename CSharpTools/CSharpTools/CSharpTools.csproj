@@ -44,7 +44,9 @@
     <Compile Include="Enums.cs" />
     <Compile Include="Extentions.cs" />
     <Compile Include="IDCard.cs" />
+    <Compile Include="MariaDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

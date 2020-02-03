@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace CSharpTools
 {
@@ -113,6 +114,19 @@ namespace CSharpTools
         public static double ExRound(this double d, int decimals)
         {
             return Math.Round(d, decimals, MidpointRounding.AwayFromZero);
+        }
+        #endregion
+        #region 正则表达式
+        /// <summary>
+        /// 返回匹配的字符串
+        /// </summary>
+        /// <param name="input">输入字符串</param>
+        /// <param name="pattern">正则表达式</param>
+        /// <returns></returns>
+        public static MatchCollection ExMatches(this string input,string pattern)
+        {
+            return Regex.Matches(input, pattern);
+
         }
         #endregion
     }
