@@ -19,7 +19,7 @@ namespace CSharpTools
         #region IDCardTest
         public static void IDCardTest()
         {
-            IDCard iDCard = new IDCard("330402196509073017", "嘿嘿嘿");
+            IDCard iDCard = new IDCard("33012419920418351x", "嘿嘿嘿");
             Console.WriteLine(iDCard.ToLStr());
             Console.ReadKey();
         }

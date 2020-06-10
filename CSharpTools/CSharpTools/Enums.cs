@@ -3215,4 +3215,13 @@
         男=1
     }
 
+    public enum SimAlgo
+    {
+        /// <summary>
+        /// 编辑距离
+        /// </summary>
+        Levenshtein_Distance
+
+
+    }
 }
